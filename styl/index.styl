@@ -1,0 +1,51 @@
+@import "normalize.min.css"
+
+$main-text-color = #3a4556;
+$light-gray = #acacac;
+$blue = #387acc;
+
+body
+  font-family: Proxima Nova, Helvetica Neue, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.48;
+  color: $main-text-color;
+  font-weight: 300;
+  
+h1
+  font-size: 1em;
+
+.light-gray-text
+  color: $light-gray;
+  
+.uppercase
+  text-transform: uppercase;
+  font-weight: 600;
+
+.section
+  padding: 4em 1em;
+  
+.hero
+  text-align: center;
+  & h1
+    font-size: 1.5em;
+    & span
+      text-transform: initial;
+      font-weight: 300;
+      display: block;
+      
+header nav
+  float: right;
+  & ul
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  & li 
+    display: inline-block;
+  & a
+    color: $main-text-color;
+    text-decoration: none;
+    font-size: 0.75em;
+    padding: 2em 1em 1em;
+    transition: color 250ms;
+    &:hover
+      color: $blue;
