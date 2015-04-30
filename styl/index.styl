@@ -33,19 +33,38 @@ h1
       font-weight: 300;
       display: block;
       
-header nav
-  float: right;
-  & ul
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  & li 
+header
+  padding: 1em;
+  & .logo
     display: inline-block;
-  & a
-    color: $main-text-color;
-    text-decoration: none;
-    font-size: 0.75em;
-    padding: 2em 1em 1em;
-    transition: color 250ms;
-    &:hover
-      color: $blue;
+    line-height: 1;
+    margin-top: 0.05em;
+    & img
+      width: 115px;
+  & nav
+    float: right;
+    & ul
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    & li 
+      display: inline-block;
+    & a
+      color: $main-text-color;
+      text-decoration: none;
+      font-size: 0.75em;
+      padding: 0 0.5em;
+      transition: color 250ms;
+      display: inline-block;
+      &:hover
+        color: $blue;
+      & img[title='twitter']
+        width: 17px;
+        margin-bottom: -2px;
+        
+section.description
+  background-color: #18c099;
+  color: white;
+  
+
+

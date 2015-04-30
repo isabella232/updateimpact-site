@@ -7,8 +7,13 @@ h1{font-size:1em}
 .hero{text-align:center;}
 .hero h1{font-size:1.5em;}
 .hero h1 span{text-transform:initial;font-weight:300;display:block}
+header{padding:1em;}
+header .logo{display:inline-block;line-height:1;margin-top:.05em;}
+header .logo img{width:115px}
 header nav{float:right;}
 header nav ul{list-style:none;padding:0;margin:0}
 header nav li{display:inline-block}
-header nav a{color:#3a4556;text-decoration:none;font-size:.75em;padding:2em 1em 1em;transition:color 250ms;}
+header nav a{color:#3a4556;text-decoration:none;font-size:.75em;padding:0 .5em;transition:color 250ms;display:inline-block;}
 header nav a:hover{color:#387acc}
+header nav a img[title='twitter']{width:17px;margin-bottom:-2px}
+section.description{background-color:#18c099;color:#fff}
