@@ -2,7 +2,12 @@
 
 $main-text-color = #3a4556;
 $light-gray = #acacac;
-$blue = #387acc;
+$blue = #4583cf;
+
+$orange = #fc7b5c;
+$pink = #f66dc4; 
+$green = #18c099; 
+$yellow = #e6de5b;
 
 body
   font-family: Proxima Nova, Helvetica Neue, Arial, sans-serif;
@@ -14,6 +19,9 @@ body
 h1
   font-size: 1em;
 
+h1, h2, h3, h4, h5
+  line-height: 1.2;
+
 .light-gray-text
   color: $light-gray;
   
@@ -22,49 +30,122 @@ h1
   font-weight: 600;
 
 .section
-  padding: 4em 1em;
-  
-.hero
+  padding: 2em 1em;
   text-align: center;
-  & h1
-    font-size: 1.5em;
-    & span
-      text-transform: initial;
-      font-weight: 300;
-      display: block;
-      
+  
+.text-orange
+  color: $orange;
+.text-pink
+  color: $pink;
+.text-blue
+  color: $blue;
+.text-green
+  color: $green;
+.text-yellow
+  color: $yellow;
+
+button
+  border-radius: 2px;
+  border: none;
+  padding: 0.4em 0.6em;
+  line-height: 1;
+  color: white;
+  font-weight: 300;
+  vertical-align: middle;
+  &.button-orange
+    background-color: $orange;
+    border: 1px solid $orange;
+  &.button-pink
+    background-color: $pink;
+    border: 1px solid $pink;
+  &.button-blue
+    background-color: $blue;
+    border: 1px solid $blue;
+  &.button-green
+    background-color: $green;
+    border: 1px solid $green;
+  &.button-yellow
+    background-color: $yellow;
+    border: 1px solid $yellow;
+       
 header
   padding: 1em;
+  overflow: auto;
   & .logo
     display: inline-block;
     line-height: 1;
     margin-top: 0.05em;
     & img
       width: 115px;
-  & nav
-    float: right;
-    & ul
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    & li 
-      display: inline-block;
-    & a
-      color: $main-text-color;
-      text-decoration: none;
-      font-size: 0.75em;
-      padding: 0 0.5em;
-      transition: color 250ms;
-      display: inline-block;
-      &:hover
-        color: $blue;
-      & img[title='twitter']
-        width: 17px;
-        margin-bottom: -2px;
+  & a
+    color: $main-text-color;
+    &:hover
+      color: $blue;
+
+nav.main-menu
+  float: right;
+  & ul
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  & li 
+    display: inline-block;
+  & a
+    text-decoration: none;
+    font-size: 0.75em;
+    padding: 0 0.5em;
+    transition: color 250ms;
+    display: inline-block;
+    & img[title='twitter']
+      width: 1.3em;
+      margin-bottom: -2px;
+        
+section.hero
+  & h1
+    font-size: 1.3em;
+    & span
+      text-transform: initial;
+      font-weight: 300;
+      display: block;
         
 section.description
   background-color: #18c099;
   color: white;
+
+section.features
+  & div > img
+    max-width: 70%;
+    margin-bottom: 1em;
+  & hr
+    width: 80%;
+    line-height: 1;
+    border: none;
+    border-top: 1px solid #dddddd;
+  & .feature-item
+    margin: 3em auto 2em;
+  & button
+    & img
+      width: 15px;
+      margin-right: 0.4em;
+    
+section.pricing
+  background-color: $blue;
+  color: white;
+    
+footer
+  border-top: 1px solid #e7e7e7;
+  background-color: #f7f7f7;
+  color: #bdbdbd;
+  overflow: auto;
+  text-align: center;
+  font-size: 0.75em;
+  & a
+    color: #bdbdbd;
+    &:hover
+      color: #9d9d9d;
+  & .main-menu
+    float: none;
+    margin-top: 1em;
+    
+.newsletter-form
   
-
-
