@@ -44,9 +44,9 @@ h1, h2, h3, h4, h5
 .text-yellow
   color: $yellow;
 
-button
+button,
+.button
   border-radius: 2px;
-  border: none;
   padding: 0.4em 0.6em;
   line-height: 1;
   color: white;
@@ -55,22 +55,38 @@ button
   &.button-orange
     background-color: $orange;
     border: 1px solid $orange;
+    transition: background-color 250ms;
+    &:hover
+      background-color: #fb624a;
   &.button-pink
     background-color: $pink;
     border: 1px solid $pink;
+    transition: background-color 250ms;
+    &:hover
+      background-color: #f457b8;
   &.button-blue
     background-color: $blue;
     border: 1px solid $blue;
+    transition: background-color 250ms;
+    &:hover
+      background-color: #376ac5;
   &.button-green
     background-color: $green;
     border: 1px solid $green;
+    transition: background-color 250ms;
+    &:hover
+      background-color: #13b385;
   &.button-yellow
     background-color: $yellow;
     border: 1px solid $yellow;
+    transition: background-color 250ms;
+    &:hover
+      background-color: #e1d749;
        
 header
   padding: 1em;
   overflow: auto;
+  text-align: center;
   & .logo
     display: inline-block;
     line-height: 1;
@@ -83,7 +99,7 @@ header
       color: $blue;
 
 nav.main-menu
-  float: right;
+  margin-top: 0.5em;
   & ul
     list-style: none;
     padding: 0;
@@ -101,12 +117,18 @@ nav.main-menu
       margin-bottom: -2px;
         
 section.hero
+  background-image: url('images/mesh.png');
+  background-size: 170%;
+  background-repeat: no-repeat;
+  background-position: center;
   & h1
     font-size: 1.3em;
     & span
       text-transform: initial;
       font-weight: 300;
       display: block;
+  & .newsletter-form
+    margin-top: 2em;
         
 section.description
   background-color: #18c099;
@@ -148,4 +170,22 @@ footer
     margin-top: 1em;
     
 .newsletter-form
+  padding-top: 1em;
+  & input[type="email"]
+    margin: 0;
+    border: 1px solid #ababab;
+    border-radius: 2px;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: .3em .6em;
+    vertical-align: top;
+    height: 25px;
+  & .button
+    text-transform: uppercase;
+    font-size: 12px;
+    vertical-align: top;
+    padding-top: 0.5em;
+    margin-left: -2px;
+    height: 25px;
   

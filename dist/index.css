@@ -10,24 +10,31 @@ h1,h2,h3,h4,h5{line-height:1.2}
 .text-blue{color:#4583cf}
 .text-green{color:#18c099}
 .text-yellow{color:#e6de5b}
-button{border-radius:2px;border:none;padding:.4em .6em;line-height:1;color:#fff;font-weight:300;vertical-align:middle;}
-button.button-orange{background-color:#fc7b5c}
-button.button-pink{background-color:#f66dc4}
-button.button-blue{background-color:#4583cf}
-button.button-green{background-color:#18c099}
-button.button-yellow{background-color:#e6de5b}
-header{padding:1em;overflow:auto;}
+button,.button{border-radius:2px;padding:.4em .6em;line-height:1;color:#fff;font-weight:300;vertical-align:middle;}
+button.button-orange,.button.button-orange{background-color:#fc7b5c;border:1px solid #fc7b5c;transition:background-color 250ms;}
+button.button-orange:hover,.button.button-orange:hover{background-color:#fb624a}
+button.button-pink,.button.button-pink{background-color:#f66dc4;border:1px solid #f66dc4;transition:background-color 250ms;}
+button.button-pink:hover,.button.button-pink:hover{background-color:#f457b8}
+button.button-blue,.button.button-blue{background-color:#4583cf;border:1px solid #4583cf;transition:background-color 250ms;}
+button.button-blue:hover,.button.button-blue:hover{background-color:#376ac5}
+button.button-green,.button.button-green{background-color:#18c099;border:1px solid #18c099;transition:background-color 250ms;}
+button.button-green:hover,.button.button-green:hover{background-color:#13b385}
+button.button-yellow,.button.button-yellow{background-color:#e6de5b;border:1px solid #e6de5b;transition:background-color 250ms;}
+button.button-yellow:hover,.button.button-yellow:hover{background-color:#e1d749}
+header{padding:1em;overflow:auto;text-align:center;}
 header .logo{display:inline-block;line-height:1;margin-top:.05em;}
 header .logo img{width:115px}
 header a{color:#3a4556;}
 header a:hover{color:#4583cf}
-nav.main-menu{float:right;}
+nav.main-menu{margin-top:.5em;}
 nav.main-menu ul{list-style:none;padding:0;margin:0}
 nav.main-menu li{display:inline-block}
 nav.main-menu a{text-decoration:none;font-size:.75em;padding:0 .5em;transition:color 250ms;display:inline-block;}
 nav.main-menu a img[title='twitter']{width:1.3em;margin-bottom:-2px}
+section.hero{background-image:url("images/mesh.png");background-size:170%;background-repeat:no-repeat;background-position:center;}
 section.hero h1{font-size:1.3em;}
 section.hero h1 span{text-transform:initial;font-weight:300;display:block}
+section.hero .newsletter-form{margin-top:2em}
 section.description{background-color:#18c099;color:#fff}
 section.features div > img{max-width:70%;margin-bottom:1em}
 section.features hr{width:80%;line-height:1;border:none;border-top:1px solid #ddd}
@@ -38,3 +45,6 @@ footer{border-top:1px solid #e7e7e7;background-color:#f7f7f7;color:#bdbdbd;overf
 footer a{color:#bdbdbd;}
 footer a:hover{color:#9d9d9d}
 footer .main-menu{float:none;margin-top:1em}
+.newsletter-form{padding-top:1em;}
+.newsletter-form input[type="email"]{margin:0;border:1px solid #ababab;border-radius:2px;padding:0;box-sizing:border-box;font-size:12px;padding:.3em .6em;vertical-align:top;height:25px}
+.newsletter-form .button{text-transform:uppercase;font-size:12px;vertical-align:top;padding-top:.5em;margin-left:-2px;height:25px}
