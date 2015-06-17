@@ -1,4 +1,5 @@
 @import "normalize.min.css"
+@import "nib"
 
 $main-text-color = #3a4556;
 $light-gray = #acacac;
@@ -161,8 +162,11 @@ section.features
     border: none;
     border-top: 1px solid #dddddd;
     margin-top: 2em;
+    clear: both;
   & .feature-item
     margin: 2em auto 2em;
+    &:last-child hr
+      opacity: 0;
   & button
     & img
       width: 15px;
@@ -208,35 +212,9 @@ footer
     padding-top: 0.5em;
     margin-left: -2px;
     height: 25px;
-
-
-
-@media only screen and (min-width: 27.3em)
-  .section > div
-    max-width: 27.3em
-    margin: 0 auto;
-  
-  header > div
-    max-width: 30em;
-    margin: 0 auto;
-
-  header .logo
-    float: left;
-    margin-top: 2px;
-  
-  nav.main-menu
-    margin-top: 0;
-    float: right;
-  
-  section.hero
-    background-size: 125%;
-    & h1 
-      font-size: 1.3em;
-  
-  footer nav.main-menu
-    float: none;
-
     
+
+
 // ANIMATIONS
 @keyframes browse {
   from {
@@ -280,10 +258,12 @@ footer
 
 #define #versions {
   opacity: 0;
+  -webkit-backface-visibility: hidden;
 }
 
 #define #thumbs {
-  opacity: 0
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
 }
 
 #define.active #versions {
@@ -322,10 +302,12 @@ footer
 
 #compare #version1 {
   opacity: 0;
+  -webkit-backface-visibility: hidden;
 }
 
 #compare #version2 {
-  opacity: 0
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
 }
 
 #compare.active #version1 {
@@ -354,6 +336,33 @@ footer
 
 
 
+
+@media only screen and (min-width: 27.3em)
+  .section > div
+    max-width: 27.3em
+    margin: 0 auto;
+  
+  header > div
+    max-width: 30em;
+    margin: 0 auto;
+
+  header .logo
+    float: left;
+    margin-top: 2px;
+  
+  nav.main-menu
+    margin-top: 0;
+    float: right;
+  
+  section.hero
+    background-size: 125%;
+    & h1 
+      font-size: 1.3em;
+  
+  footer nav.main-menu
+    float: none;
+
+    
 @media only screen and (min-width: 37.5em)
   section.hero
     background-size: 100%;
@@ -421,12 +430,20 @@ footer
       float: right;
       padding-right: 4em;
       
+      
   section.feature-item:nth-child(even)
     & > div
       float: right; 
     & > div.description
       float: left;
       padding-left: 4em;
+      
+  section.feature-item:last-child
+    margin-bottom: 0;
+    & > div
+      margin-bottom: 0;
+      & svg
+        margin-bottom: 0;
 
 
 

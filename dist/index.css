@@ -11,16 +11,16 @@ h1,h2,h3,h4,h5{line-height:1.2}
 .text-blue{color:#4583cf}
 .text-green{color:#18c099}
 .text-yellow{color:#e6de5b}
-button,.button{border-radius:2px;padding:.4em .6em;line-height:1;color:#fff;font-weight:300;vertical-align:middle;}
-button.button-orange,.button.button-orange{background-color:#fc7b5c;border:1px solid #fc7b5c;transition:background-color 250ms;}
+button,.button{-webkit-border-radius:2px;border-radius:2px;padding:.4em .6em;line-height:1;color:#fff;font-weight:300;vertical-align:middle;}
+button.button-orange,.button.button-orange{background-color:#fc7b5c;border:1px solid #fc7b5c;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-orange:hover,.button.button-orange:hover{background-color:#fb624a}
-button.button-pink,.button.button-pink{background-color:#f66dc4;border:1px solid #f66dc4;transition:background-color 250ms;}
+button.button-pink,.button.button-pink{background-color:#f66dc4;border:1px solid #f66dc4;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-pink:hover,.button.button-pink:hover{background-color:#f457b8}
-button.button-blue,.button.button-blue{background-color:#4583cf;border:1px solid #4583cf;transition:background-color 250ms;}
+button.button-blue,.button.button-blue{background-color:#4583cf;border:1px solid #4583cf;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-blue:hover,.button.button-blue:hover{background-color:#376ac5}
-button.button-green,.button.button-green{background-color:#18c099;border:1px solid #18c099;transition:background-color 250ms;}
+button.button-green,.button.button-green{background-color:#18c099;border:1px solid #18c099;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-green:hover,.button.button-green:hover{background-color:#13b385}
-button.button-yellow,.button.button-yellow{background-color:#e6de5b;border:1px solid #e6de5b;transition:background-color 250ms;}
+button.button-yellow,.button.button-yellow{background-color:#e6de5b;border:1px solid #e6de5b;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-yellow:hover,.button.button-yellow:hover{background-color:#e1d749}
 header{padding:1em;overflow:auto;text-align:center;}
 header .logo{display:inline-block;line-height:1;margin-top:.05em;}
@@ -30,19 +30,20 @@ header a:hover{color:#4583cf}
 nav.main-menu{margin-top:.5em;}
 nav.main-menu ul{list-style:none;padding:0;margin:0}
 nav.main-menu li{display:inline-block}
-nav.main-menu a{text-decoration:none;font-size:.75em;padding:0 .5em;transition:color 250ms;display:inline-block;}
+nav.main-menu a{text-decoration:none;font-size:.75em;padding:0 .5em;-webkit-transition:color 250ms;-moz-transition:color 250ms;-o-transition:color 250ms;-ms-transition:color 250ms;transition:color 250ms;display:inline-block;}
 nav.main-menu a img[title='twitter']{width:1.3em;margin-bottom:-2px}
-section.hero{background-image:url("images/mesh.png");background-size:170%;background-repeat:no-repeat;background-position:center 10%;}
+section.hero{background-image:url("images/mesh.png");-webkit-background-size:170%;-moz-background-size:170%;background-size:170%;background-repeat:no-repeat;background-position:center 10%;}
 section.hero h1{font-size:1.1em;}
 section.hero h1 span{text-transform:initial;font-weight:300;display:block}
 section.hero .newsletter-form{margin-top:2em}
-section.hero .twitter-follow{text-decoration:none;font-size:.75em;padding:0 .5em;transition:color 250ms;display:inline-block;margin-top:4em;}
+section.hero .twitter-follow{text-decoration:none;font-size:.75em;padding:0 .5em;-webkit-transition:color 250ms;-moz-transition:color 250ms;-o-transition:color 250ms;-ms-transition:color 250ms;transition:color 250ms;display:inline-block;margin-top:4em;}
 section.hero .twitter-follow img[title='twitter']{width:1.3em;margin-bottom:-2px;margin-left:.5em}
 section.description{background:#18c099 url("images/bg-pattern.gif");color:#fff}
 section.features div > img{max-width:70%;margin-bottom:1em}
 section.features div > svg{max-width:70%;margin-bottom:1em}
-section.features hr{width:80%;line-height:1;border:none;border-top:1px solid #ddd;margin-top:2em}
-section.features .feature-item{margin:2em auto 2em}
+section.features hr{width:80%;line-height:1;border:none;border-top:1px solid #ddd;margin-top:2em;clear:both}
+section.features .feature-item{margin:2em auto 2em;}
+section.features .feature-item:last-child hr{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
 section.features button img{width:15px;margin-right:.4em}
 section.pricing{background-color:#4583cf;color:#fff}
 footer{border-top:1px solid #e7e7e7;background-color:#f7f7f7;color:#bdbdbd;overflow:auto;text-align:center;font-size:.75em;}
@@ -50,55 +51,58 @@ footer a{color:#bdbdbd;}
 footer a:hover{color:#9d9d9d}
 footer .main-menu{float:none;margin-top:1em}
 .newsletter-form{padding-top:1em;}
-.newsletter-form input[type="email"]{margin:0;border:1px solid #ababab;border-radius:2px;padding:0;box-sizing:border-box;font-size:12px;padding:.3em .6em;vertical-align:top;height:25px;width:179px;margin-bottom:1em}
+.newsletter-form input[type="email"]{margin:0;border:1px solid #ababab;-webkit-border-radius:2px;border-radius:2px;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:12px;padding:.3em .6em;vertical-align:top;height:25px;width:179px;margin-bottom:1em}
 .newsletter-form .button{text-transform:uppercase;font-size:12px;vertical-align:top;padding-top:.5em;margin-left:-2px;height:25px}
+#browse.active #tree{-webkit-animation:browse 400ms linear 100ms forwards;-moz-animation:browse 400ms linear 100ms forwards;-o-animation:browse 400ms linear 100ms forwards;-ms-animation:browse 400ms linear 100ms forwards;animation:browse 400ms linear 100ms forwards}
+#analyze.active #branch{-webkit-animation:analyze 400ms linear 100ms forwards;-moz-animation:analyze 400ms linear 100ms forwards;-o-animation:analyze 400ms linear 100ms forwards;-ms-animation:analyze 400ms linear 100ms forwards;animation:analyze 400ms linear 100ms forwards}
+#define #versions{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-backface-visibility:hidden}
+#define #thumbs{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-backface-visibility:hidden}
+#define.active #versions{-webkit-animation:define 400ms linear 100ms forwards;-moz-animation:define 400ms linear 100ms forwards;-o-animation:define 400ms linear 100ms forwards;-ms-animation:define 400ms linear 100ms forwards;animation:define 400ms linear 100ms forwards}
+#define.active #thumbs{-webkit-animation:define 400ms linear 400ms forwards;-moz-animation:define 400ms linear 400ms forwards;-o-animation:define 400ms linear 400ms forwards;-ms-animation:define 400ms linear 400ms forwards;animation:define 400ms linear 400ms forwards}
+#notify.active #bells{-webkit-animation:notify 400ms linear 100ms forwards;-moz-animation:notify 400ms linear 100ms forwards;-o-animation:notify 400ms linear 100ms forwards;-ms-animation:notify 400ms linear 100ms forwards;animation:notify 400ms linear 100ms forwards}
+#compare #version1{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-backface-visibility:hidden}
+#compare #version2{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-backface-visibility:hidden}
+#compare.active #version1{-webkit-animation:compare 400ms linear 100ms forwards;-moz-animation:compare 400ms linear 100ms forwards;-o-animation:compare 400ms linear 100ms forwards;-ms-animation:compare 400ms linear 100ms forwards;animation:compare 400ms linear 100ms forwards}
+#compare.active #version2{-webkit-animation:compare 400ms linear 400ms forwards;-moz-animation:compare 400ms linear 400ms forwards;-o-animation:compare 400ms linear 400ms forwards;-ms-animation:compare 400ms linear 400ms forwards;animation:compare 400ms linear 400ms forwards}
+#findout.active #difference{-webkit-animation:findout 400ms linear 100ms forwards;-moz-animation:findout 400ms linear 100ms forwards;-o-animation:findout 400ms linear 100ms forwards;-ms-animation:findout 400ms linear 100ms forwards;animation:findout 400ms linear 100ms forwards}
 @media only screen and (min-width: 27.3em){.section > div{max-width:27.3em;margin:0 auto}
 header > div{max-width:30em;margin:0 auto}
 header .logo{float:left;margin-top:2px}
 nav.main-menu{margin-top:0;float:right}
-section.hero{background-size:125%;}
+section.hero{-webkit-background-size:125%;-moz-background-size:125%;background-size:125%;}
 section.hero h1{font-size:1.3em}
 footer nav.main-menu{float:none}
-}#browse.active #tree{animation:browse 400ms linear 100ms forwards}
-#analyze.active #branch{animation:analyze 400ms linear 100ms forwards}
-#define #versions{opacity:0}
-#define #thumbs{opacity:0}
-#define.active #versions{animation:define 400ms linear 100ms forwards}
-#define.active #thumbs{animation:define 400ms linear 400ms forwards}
-#notify.active #bells{animation:notify 400ms linear 100ms forwards}
-#compare #version1{opacity:0}
-#compare #version2{opacity:0}
-#compare.active #version1{animation:compare 400ms linear 100ms forwards}
-#compare.active #version2{animation:compare 400ms linear 400ms forwards}
-#findout.active #difference{animation:findout 400ms linear 100ms forwards}
-@media only screen and (min-width: 37.5em){section.hero{background-size:100%}
+}@media only screen and (min-width: 37.5em){section.hero{-webkit-background-size:100%;-moz-background-size:100%;background-size:100%}
 footer{text-align:left;}
 footer.section > div{max-width:none}
 }@media only screen and (min-width: 43.5em){.light-gray-text{max-width:60%;margin:0 auto}
 .section > div{max-width:100%}
 header > div{max-width:50em}
-section.hero{background-size:80%}
-section.description{background:#18c099 url("images/guy-bg.jpg");background-size:cover;background-repeat:no-repeat;background-position:center}
+section.hero{-webkit-background-size:80%;-moz-background-size:80%;background-size:80%}
+section.description{background:#18c099 url("images/guy-bg.jpg");-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position:center}
 section.description{overflow:auto;}
 section.description > div{max-width:50%;text-align:left;float:right;text-shadow:0 1px 0 rgba(3,3,3,0.4)}
 section.feature-item{overflow:overlay;}
 section.feature-item > div{width:55%;margin-bottom:2em;}
 section.feature-item > div > img{max-width:80%}
 section.feature-item > div > svg{max-width:80%}
-section.feature-item > div.description{width:45%;text-align:left;padding:0 0 0 1em;box-sizing:border-box}
+section.feature-item > div.description{width:45%;text-align:left;padding:0 0 0 1em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 section.feature-item:nth-child(odd) > div{float:left}
 section.feature-item:nth-child(odd) > div.description{float:right;padding-right:4em}
 section.feature-item:nth-child(even) > div{float:right}
 section.feature-item:nth-child(even) > div.description{float:left;padding-left:4em}
+section.feature-item:last-child{margin-bottom:0;}
+section.feature-item:last-child > div{margin-bottom:0;}
+section.feature-item:last-child > div svg{margin-bottom:0}
 }@media only screen and (min-width: 54.55em){.section{padding:4em 3em}
-section.hero{background-size:70%}
+section.hero{-webkit-background-size:70%;-moz-background-size:70%;background-size:70%}
 section.description > div{max-width:40%}
 }@media only screen and (min-width: 68em){.section{position:relative;padding:4em 3em}
 .light-gray-text{max-width:32%}
 header .logo img{width:140px}
 nav.main-menu ul{margin-top:.2em}
 nav.main-menu a{padding:0 1.5em}
-section.hero{padding:9em 3em;background-size:70%;background-position:center 50%;}
+section.hero{padding:9em 3em;-webkit-background-size:70%;-moz-background-size:70%;background-size:70%;background-position:center 50%;}
 section.hero h1{font-size:1.5em}
 section.hero .twitter-follow{margin-top:0;position:absolute;bottom:20px;left:50%;margin-left:-66px}
 .newsletter-form input[type="email"]{height:30px;width:200px}
@@ -133,16 +137,16 @@ footer{font-size:.85em}
 100%{fill:#f66dc4}
 }@keyframes analyze{0%{fill:#ddd}
 100%{fill:#f66dc4}
-}@-moz-keyframes define{0%{opacity:0}
-100%{opacity:1}
-}@-webkit-keyframes define{0%{opacity:0}
-100%{opacity:1}
-}@-o-keyframes define{0%{opacity:0}
-100%{opacity:1}
-}@-ms-keyframes define{0%{opacity:0}
-100%{opacity:1}
-}@keyframes define{0%{opacity:0}
-100%{opacity:1}
+}@-moz-keyframes define{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-webkit-keyframes define{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-o-keyframes define{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-ms-keyframes define{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@keyframes define{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
 }@-moz-keyframes notify{0%{fill:#387acc}
 100%{fill:#f66dc4}
 }@-webkit-keyframes notify{0%{fill:#387acc}
@@ -153,16 +157,16 @@ footer{font-size:.85em}
 100%{fill:#f66dc4}
 }@keyframes notify{0%{fill:#387acc}
 100%{fill:#f66dc4}
-}@-moz-keyframes compare{0%{opacity:0}
-100%{opacity:1}
-}@-webkit-keyframes compare{0%{opacity:0}
-100%{opacity:1}
-}@-o-keyframes compare{0%{opacity:0}
-100%{opacity:1}
-}@-ms-keyframes compare{0%{opacity:0}
-100%{opacity:1}
-}@keyframes compare{0%{opacity:0}
-100%{opacity:1}
+}@-moz-keyframes compare{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-webkit-keyframes compare{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-o-keyframes compare{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-ms-keyframes compare{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@keyframes compare{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+100%{opacity:1;-ms-filter:none;filter:none}
 }@-moz-keyframes findout{0%{fill:#387acc}
 100%{fill:#e6de5b}
 }@-webkit-keyframes findout{0%{fill:#387acc}
