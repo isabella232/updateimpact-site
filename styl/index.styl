@@ -9,6 +9,9 @@ $pink = #f66dc4;
 $green = #18c099; 
 $yellow = #e6de5b;
 
+svg
+  width: 100%;
+
 body
   font-family: Proxima Nova, Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
@@ -120,22 +123,36 @@ section.hero
   background-image: url('images/mesh.png');
   background-size: 170%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 10%;
   & h1
-    font-size: 1.3em;
+    font-size: 1.1em;
     & span
       text-transform: initial;
       font-weight: 300;
       display: block;
   & .newsletter-form
     margin-top: 2em;
+  & .twitter-follow
+    text-decoration: none;
+    font-size: 0.75em;
+    padding: 0 0.5em;
+    transition: color 250ms;
+    display: inline-block;
+    margin-top: 4em;
+    & img[title='twitter']
+      width: 1.3em;
+      margin-bottom: -2px;
+      margin-left: 0.5em;
         
 section.description
-  background-color: #18c099;
+  background: #18c099 url("images/bg-pattern.gif");
   color: white;
 
 section.features
   & div > img
+    max-width: 70%;
+    margin-bottom: 1em;
+  & div > svg
     max-width: 70%;
     margin-bottom: 1em;
   & hr
@@ -143,8 +160,9 @@ section.features
     line-height: 1;
     border: none;
     border-top: 1px solid #dddddd;
+    margin-top: 2em;
   & .feature-item
-    margin: 3em auto 2em;
+    margin: 2em auto 2em;
   & button
     & img
       width: 15px;
@@ -181,6 +199,8 @@ footer
     padding: .3em .6em;
     vertical-align: top;
     height: 25px;
+    width: 179px;
+    margin-bottom: 1em;
   & .button
     text-transform: uppercase;
     font-size: 12px;
@@ -188,4 +208,315 @@ footer
     padding-top: 0.5em;
     margin-left: -2px;
     height: 25px;
+
+
+
+@media only screen and (min-width: 27.3em)
+  .section > div
+    max-width: 27.3em
+    margin: 0 auto;
   
+  header > div
+    max-width: 30em;
+    margin: 0 auto;
+
+  header .logo
+    float: left;
+    margin-top: 2px;
+  
+  nav.main-menu
+    margin-top: 0;
+    float: right;
+  
+  section.hero
+    background-size: 125%;
+    & h1 
+      font-size: 1.3em;
+  
+  footer nav.main-menu
+    float: none;
+
+    
+// ANIMATIONS
+@keyframes browse {
+  from {
+    fill: #387ACC;
+  }
+
+  to {
+    fill: #FC7B5C;
+  }
+}
+
+#browse.active #tree {
+  animation: browse 400ms linear 100ms forwards;
+}
+// ----------------------------------------------
+
+@keyframes analyze {
+  from {
+    fill: #DDDDDD;
+  }
+
+  to {
+    fill: #F66DC4;
+  }
+}
+
+#analyze.active #branch {
+  animation: analyze 400ms linear 100ms forwards;
+}
+// ----------------------------------------------
+
+@keyframes define {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#define #versions {
+  opacity: 0;
+}
+
+#define #thumbs {
+  opacity: 0
+}
+
+#define.active #versions {
+  animation: define 400ms linear 100ms forwards;
+}
+
+#define.active #thumbs {
+  animation: define 400ms linear 400ms forwards;
+}
+// ----------------------------------------------
+
+@keyframes notify {
+  from {
+    fill: #387ACC;
+  }
+
+  to {
+    fill: #F66DC4;
+  }
+}
+
+#notify.active #bells {
+  animation: notify 400ms linear 100ms forwards;
+}
+// ----------------------------------------------
+
+@keyframes compare {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#compare #version1 {
+  opacity: 0;
+}
+
+#compare #version2 {
+  opacity: 0
+}
+
+#compare.active #version1 {
+  animation: compare 400ms linear 100ms forwards;
+}
+
+#compare.active #version2 {
+  animation: compare 400ms linear 400ms forwards;
+}
+// ----------------------------------------------
+
+@keyframes findout {
+  from {
+    fill: #387ACC;
+  }
+
+  to {
+    fill: #E6DE5B;
+  }
+}
+
+#findout.active #difference {
+  animation: findout 400ms linear 100ms forwards;
+}
+// ----------------------------------------------
+
+
+
+@media only screen and (min-width: 37.5em)
+  section.hero
+    background-size: 100%;
+  
+  footer
+    text-align: left;
+    
+    &.section > div
+      max-width: none;
+
+
+
+@media only screen and (min-width: 43.5em)
+  .light-gray-text
+    max-width: 60%;
+    margin: 0 auto;
+  
+  .section > div
+    max-width: 100%;
+  
+  header > div
+    max-width: 50em;
+
+  section.hero
+    background-size: 80%;
+
+  section.description
+    background: #18c099 url("images/guy-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+  section.description
+    overflow: auto;
+    
+    & > div
+      max-width: 50%;
+      text-align: left;
+      float: right;
+      text-shadow: 0 1px 0px rgba(3, 3, 3, 0.4);
+      
+  section.feature-item
+    overflow: overlay;
+    
+    & > div
+      width: 55%;
+      margin-bottom: 2em;
+      
+      & > img
+        max-width: 80%;
+        
+      & > svg
+        max-width: 80%;
+    
+    & > div.description
+      width: 45%;
+      text-align: left;
+      padding: 0 0 0 1em;
+      box-sizing: border-box;
+      
+  section.feature-item:nth-child(odd)
+    & > div
+      float: left;
+    & > div.description
+      float: right;
+      padding-right: 4em;
+      
+  section.feature-item:nth-child(even)
+    & > div
+      float: right; 
+    & > div.description
+      float: left;
+      padding-left: 4em;
+
+
+
+@media only screen and (min-width: 54.55em)
+  .section
+    padding: 4em 3em;
+
+  section.hero
+    background-size: 70%;
+    
+  section.description > div
+    max-width: 40%;
+
+
+
+@media only screen and (min-width: 68em)
+  .section
+    position: relative;
+    padding: 4em 3em;
+  
+  .light-gray-text
+    max-width: 32%;
+
+  header .logo img
+    width: 140px;
+    
+  nav.main-menu 
+    & ul
+      margin-top: 0.2em;
+    & a
+      padding: 0 1.5em;
+  
+  section.hero
+    padding: 9em 3em;
+    background-size: 70%;
+    background-position: center 50%;
+    
+    & h1
+      font-size: 1.5em;
+      
+    & .twitter-follow
+      margin-top: 0;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-left: -66px;
+      
+  .newsletter-form 
+    & input[type="email"]
+      height: 30px;
+      width: 200px;
+      
+    & .button
+      height: 30px;
+      padding-left: 1.5em;
+      padding-right: 1.5em;  
+  
+  section.description > div
+    max-width: 33%;
+    
+  section.features .feature-item
+    max-width: 1000px;
+    margin: 4em auto;
+  
+    &:nth-child(odd) > div.description
+      padding-right: 7em;
+    &:nth-child(even) > div.description
+      padding-left: 7em;
+    
+  section.feature-item > div
+    margin-bottom: 4em;
+    
+    & > img
+      max-width: 75%;
+    
+    & > svg
+      max-width: 75%;
+  
+  section.features .feature-item:last-child
+    margin-bottom: 0;
+    
+    & > div
+      margin-bottom: 0;
+      
+  footer
+    font-size: .85em;
+      
+
+
+
+
+
+

@@ -4,137 +4,180 @@ html(lang="en")
     title UpdateImpact - dependency tree for your JVM-based projects.
     link(rel="stylesheet", href="index.css")
     link(rel="shortcut icon", href="favicon.ico")
-    script(src="app.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src="smooth-scroll.js")
+    script(src="jquery-scrollspy.js")
   body
     header
-      a(href="").logo
-        img(src="images/updateimpact.svg")
-      nav.main-menu
-        ul.uppercase
-          li
-            a(href="#product") Product
-          li
-            a(href="#features") Features
-          li
-            a(href="#pricing") Pricing
-          li
-            a(href="")
-              img(src="images/twitter.svg", title="twitter")
+      div
+        a(href="").logo
+          img(src="images/updateimpact.svg")
+        nav.main-menu
+          ul.uppercase
+            li
+              a(href="#product", data-scroll) Product
+            li
+              a(href="#features", data-scroll) Features
+            li
+              a(href="#pricing", data-scroll) Pricing
+            li
+              a(href="") <!-- !!!!!!!! <- Update action link  -->
+                img(src="images/twitter.svg", title="twitter")
     section.section.hero
-      h1.uppercase Have a crystal-clear view on what libraries you use 
-        span ... and don't allow it to get blurred
-      p.light-gray-text UpdateImpact is a web tool for (initially) JVM-based projects which visualises, runs static analysis and monitors the dependency tree of your projects.
-      div.newsletter-form
-        //- Start Mailchimp form
-        //- !!!!!!!! Update action link 
-        div#mc_embed_signup
-          form#mc-embedded-subscribe-form.validate(action='//softwaremill.us2.list-manage.com/subscribe/post?u=ba834c562d82d9aba5eaf90ba&id=e06444253f', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
-            div#mc_embed_signup_scroll
-              div.mc-field-group
-                input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
-                input#mc-embedded-subscribe.button.button-blue(type='submit', value='Subscribe to newsletters', name='subscribe')
-              div#mce-responses.clear
-                div#mce-error-response.response(style='display:none')
-                div#mce-success-response.response(style='display:none')
-              div(style='position: absolute; left: -5000px;')
-                input(type='text', name='b_ba834c562d82d9aba5eaf90ba_e06444253f', tabindex='-1', value='')                
-        script(type='text/javascript', src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js')
-        script(type='text/javascript').
-          (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
-        //- End Mailchimp form
-      span Follow us on twitter
+      div
+        h1.uppercase Have a crystal-clear view on what libraries you use 
+          span ... and don't allow it to get blurred
+        p.light-gray-text UpdateImpact is a web tool for (initially) JVM-based projects which visualises, runs static analysis and monitors the dependency tree of your projects.
+        div.newsletter-form
+          //- Start Mailchimp form
+          //- !!!!!!!! Update action link 
+          div#mc_embed_signup
+            form#mc-embedded-subscribe-form.validate(action='//softwaremill.us2.list-manage.com/subscribe/post?u=ba834c562d82d9aba5eaf90ba&id=e06444253f', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+              div#mc_embed_signup_scroll
+                div.mc-field-group
+                  input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
+                  input#mc-embedded-subscribe.button.button-blue(type='submit', value='Subscribe to newsletters', name='subscribe')
+                div#mce-responses.clear
+                  div#mce-error-response.response(style='display:none')
+                  div#mce-success-response.response(style='display:none')
+                div(style='position: absolute; left: -5000px;')
+                  input(type='text', name='b_ba834c562d82d9aba5eaf90ba_e06444253f', tabindex='-1', value='')                
+          script(type='text/javascript', src='https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js')
+          script(type='text/javascript').
+            (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+          //- End Mailchimp form
+        a(href="").twitter-follow.light-gray-text Follow us on twitter
+          img(src="images/twitter.svg", title="twitter")
     section#product.section.description
-      p Dependency management, incompatible library versions, weird bugs caused by a transitive dependency update are what developers all around the world spend precious hours every day. But it doesn't have to be that way!
-      p With the right tools and continuous monitoring, your software can be more secure, delivered faster and you can have more confidence as to what's included in the final package.
-      p UpdateImpact is a user-friendly tool both for developers, helping to quickly visualise and view the dependency trees of the projects, as well as for project leaders, who wish to have an overview of the libraries used in the organisation and maintain consistency across multiple projects.
+      div.animateme(data-when="enter", data-from="0.5", data-to="0", data-opacity="0", data-translatey="100")
+        p Dependency management, incompatible library versions, weird bugs caused by a transitive dependency update are what developers all around the world spend precious hours every day. But it doesn't have to be that way!
+        p With the right tools and continuous monitoring, your software can be more secure, delivered faster and you can have more confidence as to what's included in the final package.
+        p UpdateImpact is a user-friendly tool both for developers, helping to quickly visualise and view the dependency trees of the projects, as well as for project leaders, who wish to have an overview of the libraries used in the organisation and maintain consistency across multiple projects.
     section#features.section.features
-      h1.uppercase Features
-      p.light-gray-text Integrates with the most popular build systems (Maven, Gradle, SBT) and CI systems (Jenkins, TeamCity)
-      section.feature-item
-        div
-          img(src="images/feature-browse.svg")
-        div.description
-          h1.uppercase.text-blue Browse
-          p Browse the direct and transitive dependencies of your project in a developer-friendly tree view. Search the tree for specific libraries and versions to find out why they are there.
-          button.counter.button-orange
-            img(src="images/like-btn.svg", title="like!")
-            | 2
-      hr
-      section.feature-item
-        div
-          img(src="images/feature-analyze.svg")
-        div.description
-          h1.uppercase.text-green Analyze
-          p Automatically analyse the dependency tree to automatically find potential problems. A number of built-in rules will help you avoid common problems.
-          button.counter.button-pink
-            img(src="images/like-btn.svg", title="like!")
-            | 5
-      hr
-      section.feature-item
-        div
-          img(src="images/feature-define.svg")
-        div.description
-          h1.uppercase.text-yellow Define
-          p Define which versions of dependencies can and cannot be used to increase security and avoid incompatibilities.
-          button.counter.button-orange
-            img(src="images/like-btn.svg", title="like!")
-            | 3
-      hr
-      section.feature-item
-        div
-          img(src="images/feature-notify.svg")
-        div.description
-          h1.uppercase.text-pink Notify
-          p Get notified when a new build introduces new or changed versions of existing dependencies in the project.
-          button.counter.button-blue
-            img(src="images/like-btn.svg", title="like!")
-            | 5
-      hr
-      section.feature-item
-        div
-          img(src="images/feature-compare.svg")
-        div.description
-          h1.uppercase.text-orange Compare
-          p Compare dependency trees of two versions of your project to make finding elusive bugs easier.
-          button.counter.button-green
-            img(src="images/like-btn.svg", title="like!")
-            | 2
-      hr
-      section.feature-item
-        div
-          img(src="images/feature-findout.svg")
-        div.description
-          h1.uppercase.text-blue Find out
-          p Find out how updating a library will impact the dependency tree of your project.
-          button.counter.button-yellow
-            img(src="images/like-btn.svg", title="like!")
-            | 4
+      div
+        h1.uppercase Features
+        p.light-gray-text Integrates with the most popular build systems (Maven, Gradle, SBT) and CI systems (Jenkins, TeamCity)
+        section.feature-item#browse
+          div
+            include feature-browse.svg
+          div.description
+            h1.uppercase.text-blue Browse
+            p Browse the direct and transitive dependencies of your project in a developer-friendly tree view. Search the tree for specific libraries and versions to find out why they are there.
+            button.counter.button-orange
+              img(src="images/like-btn.svg", title="like!")
+              span 2
+          hr
+        section.feature-item#analyze
+          div
+            include feature-analyze.svg
+          div.description
+            h1.uppercase.text-green Analyze
+            p Automatically analyse the dependency tree to automatically find potential problems. A number of built-in rules will help you avoid common problems.
+            button.counter.button-pink
+              img(src="images/like-btn.svg", title="like!")
+              span 5
+          hr
+        section.feature-item#define
+          div
+            include feature-define.svg
+          div.description
+            h1.uppercase.text-yellow Define
+            p Define which versions of dependencies can and cannot be used to increase security and avoid incompatibilities.
+            button.counter.button-orange
+              img(src="images/like-btn.svg", title="like!")
+              span 3
+          hr
+        section.feature-item#notify
+          div
+            include feature-notify.svg
+          div.description
+            h1.uppercase.text-pink Notify
+            p Get notified when a new build introduces new or changed versions of existing dependencies in the project.
+            button.counter.button-blue
+              img(src="images/like-btn.svg", title="like!")
+              span 5
+          hr
+        section.feature-item#compare
+          div
+            include feature-compare.svg
+          div.description
+            h1.uppercase.text-orange Compare
+            p Compare dependency trees of two versions of your project to make finding elusive bugs easier.
+            button.counter.button-green
+              img(src="images/like-btn.svg", title="like!")
+              span 2
+          hr
+        section.feature-item#findout
+          div
+            include feature-findout.svg
+          div.description
+            h1.uppercase.text-blue Find out
+            p Find out how updating a library will impact the dependency tree of your project.
+            button.counter.button-yellow
+              img(src="images/like-btn.svg", title="like!")
+              span 4
     section#pricing.section.pricing
-      h1.uppercase Pricing
+      div
+        h1.uppercase Pricing
     section.section
-      h1.uppercase Subscribe for our news
-      div.newsletter-form
-        //- Start Mailchimp form
-        div#mc_embed_signup
-          form#mc-embedded-subscribe-form.validate(action='//softwaremill.us2.list-manage.com/subscribe/post?u=ba834c562d82d9aba5eaf90ba&id=e06444253f', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
-            div#mc_embed_signup_scroll
-              div.mc-field-group
-                input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
-                input#mc-embedded-subscribe.button.button-pink(type='submit', value='Subscribe to newsletters', name='subscribe')
-              div#mce-responses.clear
-                div#mce-error-response.response(style='display:none')
-                div#mce-success-response.response(style='display:none')
-              div(style='position: absolute; left: -5000px;')
-                input(type='text', name='b_ba834c562d82d9aba5eaf90ba_e06444253f', tabindex='-1', value='')                
-        //- End Mailchimp form
-    footer.section &copy; UpdateImpact 2015. All rights reserved.
-      nav.main-menu
-        ul.uppercase
-          li
-            a(href="#product") Product
-          li
-            a(href="#features") Features
-          li
-            a(href="#pricing") Pricing
+      div
+        h1.uppercase Subscribe for our news
+        div.newsletter-form
+          //- Start Mailchimp form
+          div#mc_embed_signup
+            form#mc-embedded-subscribe-form.validate(action='//softwaremill.us2.list-manage.com/subscribe/post?u=ba834c562d82d9aba5eaf90ba&id=e06444253f', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+              div#mc_embed_signup_scroll
+                div.mc-field-group
+                  input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
+                  input#mc-embedded-subscribe.button.button-pink(type='submit', value='Subscribe to newsletters', name='subscribe')
+                div#mce-responses.clear
+                  div#mce-error-response.response(style='display:none')
+                  div#mce-success-response.response(style='display:none')
+                div(style='position: absolute; left: -5000px;')
+                  input(type='text', name='b_ba834c562d82d9aba5eaf90ba_e06444253f', tabindex='-1', value='')                
+          //- End Mailchimp form
+    footer.section
+      div &copy; UpdateImpact 2015. All rights reserved.
+        div
+          nav.main-menu
+            ul.uppercase
+              li
+                a(href="#product", data-scroll) Product
+              li
+                a(href="#features", data-scroll) Features
+              li
+                a(href="#pricing", data-scroll) Pricing
+
+    script(src="app.js")
+
+    script
+      smoothScroll.init({
+        speed: 500,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 0
+      });
+
+    script(type="text/javascript")
+      $(window).load(function() {
+        $('.feature-item').each(function(i) {
+          var delta = $(window).height() * 0.75;
+          var position = $(this).offset();
+          console.log(position);
+          console.log('min: ' + position.top + ' / max: ' + parseInt(position.top + $(this).height()));
+          $(this).scrollspy({
+            min: position.top - delta,
+            max: position.top - delta + $(this).height(),
+            onEnter: function(element, position) {
+              if(console) console.log('entering ' +  element.id, $(element).addClass('active'));
+              //- $("body").css('background-color', element.id);
+            },
+            onLeave: function(element, position) {
+              if(console) console.log('leaving ' +  element.id);
+            //  $('body').css('background-color','#eee');
+            }
+          });
+        });
+        });
 
 
