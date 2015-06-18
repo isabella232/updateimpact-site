@@ -53,8 +53,37 @@ module.exports = function(grunt) {
         files: ['jade/*.jade', 'styl/*.styl', 'js/*.js'],
         tasks: ['build']
       }
-    }
+    },
 
+    aws: grunt.file.readJSON('grunt-aws.json'),
+
+    aws_s3: {
+      release: {
+        options: {
+            accessKeyId: '<%= aws.key %>',          
+            secretAccessKey: '<%= aws.secret %>',
+            bucket: '<%= aws.bucket %>',    
+            region: '',        
+            sslEnabled: false
+        },
+        files: [
+            {
+                expand: true, 
+                dest: '/', 
+                cwd: 'dist/', 
+                src: ['**'], 
+                action: 'upload', 
+                differential: true
+            },
+            { 
+                dest: '/', 
+                cwd: 'dist/', 
+                action: 'delete', 
+                differential: true
+            }
+        ]
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -62,8 +91,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-aws-s3');
 
   grunt.registerTask('build', ['jade:compile', 'stylus:compile', 'concat:dist']);
-  grunt.registerTask('deploy', ['jade:compile', 'stylus:compile', 'concat:dist', 'uglify:my_target']);
-
+  grunt.registerTask('deploy', ['jade:compile', 'stylus:compile', 'concat:dist', 
+    'uglify:my_target', 'aws_s3']);
 };
