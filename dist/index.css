@@ -45,14 +45,25 @@ section.features hr{width:80%;line-height:1;border:none;border-top:1px solid #dd
 section.features .feature-item{margin:2em auto 2em;}
 section.features .feature-item:last-child hr{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
 section.features button img{width:15px;margin-right:.4em}
-section.pricing{background-color:#4583cf;color:#fff}
+section.pricing{background-color:#4583cf;color:#fff;}
+section.pricing > div > h1{margin-bottom:2em}
+.plan-item{width:84%;display:inline-block;margin-right:20px;margin-left:20px;background-color:#fff;color:#3a4556;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:1.5em 1em 2em;margin-bottom:1.5em;border:3px solid #2d6ebe;}
+.plan-item em{font-weight:bold}
+.plan-item p{margin-bottom:.67em;margin-top:.67em}
+.plan-item a{color:#f66dc4;}
+.plan-item a:hover{color:#e355af}
+.plan-title{text-transform:uppercase;color:#18c099;font-size:1.3em;margin-bottom:1em;}
+.plan-title span{font-weight:300;font-size:.75em;color:#3a4556}
 footer{border-top:1px solid #e7e7e7;background-color:#f7f7f7;color:#bdbdbd;overflow:auto;text-align:center;font-size:.75em;}
 footer a{color:#bdbdbd;}
 footer a:hover{color:#9d9d9d}
 footer .main-menu{float:none;margin-top:1em}
-.newsletter-form{padding-top:1em;}
+.newsletter-form{padding-top:1em;max-width:358px;margin-left:auto;margin-right:auto;}
 .newsletter-form input[type="email"]{margin:0;border:1px solid #ababab;-webkit-border-radius:2px;border-radius:2px;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:12px;padding:.3em .6em;vertical-align:top;height:25px;width:179px;margin-bottom:1em}
 .newsletter-form .button{text-transform:uppercase;font-size:12px;vertical-align:top;padding-top:.5em;margin-left:-2px;height:25px}
+#mce-success-response{background-color:rgba(0,128,0,0.2);padding:5px;-webkit-border-radius:3px;border-radius:3px;color:#4c7724}
+#mce-error-response{background-color:rgba(0,0,0,0.2);color:#4d4d4d;font-size:.85em;padding:5px;-webkit-border-radius:3px;border-radius:3px;}
+#mce-error-response a{text-decoration:none;color:#4d68f0}
 #browse.active #tree{-webkit-animation:browse 400ms linear 100ms forwards;-moz-animation:browse 400ms linear 100ms forwards;-o-animation:browse 400ms linear 100ms forwards;-ms-animation:browse 400ms linear 100ms forwards;animation:browse 400ms linear 100ms forwards}
 #analyze.active #branch{-webkit-animation:analyze 400ms linear 100ms forwards;-moz-animation:analyze 400ms linear 100ms forwards;-o-animation:analyze 400ms linear 100ms forwards;-ms-animation:analyze 400ms linear 100ms forwards;animation:analyze 400ms linear 100ms forwards}
 #define #versions{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-backface-visibility:hidden}
@@ -94,9 +105,11 @@ section.feature-item:nth-child(even) > div.description{float:left;padding-left:4
 section.feature-item:last-child{margin-bottom:0;}
 section.feature-item:last-child > div{margin-bottom:0;}
 section.feature-item:last-child > div svg{margin-bottom:0}
+.plan-item{width:39%}
 }@media only screen and (min-width: 54.55em){.section{padding:4em 3em}
 section.hero{-webkit-background-size:70%;-moz-background-size:70%;background-size:70%}
 section.description > div{max-width:40%}
+.plan-item{width:28%}
 }@media only screen and (min-width: 68em){.section{position:relative;padding:4em 3em}
 .light-gray-text{max-width:32%}
 header .logo img{width:140px}
@@ -116,6 +129,7 @@ section.feature-item > div > img{max-width:75%}
 section.feature-item > div > svg{max-width:75%}
 section.features .feature-item:last-child{margin-bottom:0;}
 section.features .feature-item:last-child > div{margin-bottom:0}
+.plan-item{width:22%}
 footer{font-size:.85em}
 }@-moz-keyframes browse{0%{fill:#387acc}
 100%{fill:#fc7b5c}

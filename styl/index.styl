@@ -175,7 +175,44 @@ section.features
 section.pricing
   background-color: $blue;
   color: white;
+  
+  & > div > h1
+    margin-bottom: 2em;
+  
+.plan-item
+  width: 84%;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: white;
+  color: #3a4556;
+  box-sizing: border-box;
+  padding: 1.5em 1em 2em;
+  margin-bottom: 1.5em;
+  border: 3px solid rgb(45, 110, 190);
+  
+  & em
+    font-weight: bold;
     
+  & p
+    margin-bottom: 0.67em;
+    margin-top: 0.67em;
+    
+  & a
+    color: #f66dc4;
+    &:hover
+      color: #e355af;
+  
+.plan-title
+  text-transform: uppercase;
+  color: #18c099;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+  & span
+    font-weight: 300;
+    font-size: 0.75em;
+    color: #3a4556;
+   
 footer
   border-top: 1px solid #e7e7e7;
   background-color: #f7f7f7;
@@ -193,6 +230,9 @@ footer
     
 .newsletter-form
   padding-top: 1em;
+  max-width: 358px;
+  margin-left: auto;
+  margin-right: auto;
   & input[type="email"]
     margin: 0;
     border: 1px solid #ababab;
@@ -213,7 +253,24 @@ footer
     margin-left: -2px;
     height: 25px;
     
-
+#mce-success-response
+  background-color: rgba(0, 128, 0, 0.2);
+  padding: 5px;
+  border-radius: 3px;
+  color: rgb(76, 119, 36);
+  
+#mce-error-response
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(77, 77, 77);
+  font-size: 0.85em;
+  padding: 5px;
+  border-radius: 3px;
+  
+  & a
+    text-decoration: none;
+    color: rgb(77, 104, 240);
+  
+    
 
 // ANIMATIONS
 @keyframes browse {
@@ -362,7 +419,7 @@ footer
   footer nav.main-menu
     float: none;
 
-    
+   
 @media only screen and (min-width: 37.5em)
   section.hero
     background-size: 100%;
@@ -372,7 +429,6 @@ footer
     
     &.section > div
       max-width: none;
-
 
 
 @media only screen and (min-width: 43.5em)
@@ -429,8 +485,7 @@ footer
     & > div.description
       float: right;
       padding-right: 4em;
-      
-      
+        
   section.feature-item:nth-child(even)
     & > div
       float: right; 
@@ -444,7 +499,9 @@ footer
       margin-bottom: 0;
       & svg
         margin-bottom: 0;
-
+  
+  .plan-item
+    width: 39%;
 
 
 @media only screen and (min-width: 54.55em)
@@ -456,7 +513,9 @@ footer
     
   section.description > div
     max-width: 40%;
-
+    
+  .plan-item
+    width: 28%;
 
 
 @media only screen and (min-width: 68em)
@@ -527,6 +586,9 @@ footer
     
     & > div
       margin-bottom: 0;
+      
+  .plan-item
+    width: 22%;
       
   footer
     font-size: .85em;
