@@ -5,6 +5,7 @@ html(lang="en")
     link(rel="stylesheet", href="index.css")
     link(rel="shortcut icon", href="favicon.ico")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js")
     //- script(src="smooth-scroll.js")
     //- script(src="jquery-scrollspy.js")
   body
@@ -67,7 +68,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-blue Browse
             p Browse the direct and transitive dependencies of your project in a developer-friendly tree view. Search the tree for specific libraries and versions to find out why they are there.
-            button.counter.button-orange
+            button.counter.button-orange(data-id="browse")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
@@ -77,7 +78,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-green Analyze
             p Automatically analyse the dependency tree to automatically find potential problems. A number of built-in rules will help you avoid common problems.
-            button.counter.button-pink
+            button.counter.button-pink(data-id="analyze")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
@@ -87,7 +88,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-yellow Define
             p Define which versions of dependencies can and cannot be used to increase security and avoid incompatibilities.
-            button.counter.button-orange
+            button.counter.button-orange(data-id="define")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
@@ -97,7 +98,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-pink Notify
             p Get notified when a new build introduces new or changed versions of existing dependencies in the project.
-            button.counter.button-blue
+            button.counter.button-blue(data-id="notify")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
@@ -107,7 +108,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-orange Compare
             p Compare dependency trees of two versions of your project to make finding elusive bugs easier.
-            button.counter.button-green
+            button.counter.button-green(data-id="compare")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
@@ -117,7 +118,7 @@ html(lang="en")
           div.description
             h1.uppercase.text-blue Find out
             p Find out how updating a library will impact the dependency tree of your project.
-            button.counter.button-yellow
+            button.counter.button-yellow(data-id="updating")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
           hr
