@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['js/jquery.js', 'js/app.js'],
+        src: ['js/smooth-scroll.js', 'js/jquery-scrollspy.js', 'js/app.js'],
         dest: 'dist/app.js'
       }
     },

@@ -1,5 +1,6 @@
 (function() {
   $('button.counter').on('click', function(){
-    $(this).find("span").text(parseInt($(this).text()) + 1);
+    // send info about click to server, and run next line
+    $(this).blur().addClass('clear').text('Thank you!');
   })
 })();

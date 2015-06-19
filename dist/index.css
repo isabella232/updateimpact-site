@@ -22,6 +22,7 @@ button.button-green,.button.button-green{background-color:#18c099;border:1px sol
 button.button-green:hover,.button.button-green:hover{background-color:#13b385}
 button.button-yellow,.button.button-yellow{background-color:#e6de5b;border:1px solid #e6de5b;-webkit-transition:background-color 250ms;-moz-transition:background-color 250ms;-o-transition:background-color 250ms;-ms-transition:background-color 250ms;transition:background-color 250ms;}
 button.button-yellow:hover,.button.button-yellow:hover{background-color:#e1d749}
+button.counter.clear,.button.counter.clear{border-color:transparent;background:transparent;color:#acacac;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-transition:opacity 300ms 2500ms;-moz-transition:opacity 300ms 2500ms;-o-transition:opacity 300ms 2500ms;-ms-transition:opacity 300ms 2500ms;transition:opacity 300ms 2500ms}
 header{padding:1em;overflow:auto;text-align:center;}
 header .logo{display:inline-block;line-height:1;margin-top:.05em;}
 header .logo img{width:115px}
@@ -31,13 +32,18 @@ nav.main-menu{margin-top:.5em;}
 nav.main-menu ul{list-style:none;padding:0;margin:0}
 nav.main-menu li{display:inline-block}
 nav.main-menu a{text-decoration:none;font-size:.75em;padding:0 .5em;-webkit-transition:color 250ms;-moz-transition:color 250ms;-o-transition:color 250ms;-ms-transition:color 250ms;transition:color 250ms;display:inline-block;}
-nav.main-menu a img[title='twitter']{width:1.3em;margin-bottom:-2px}
-section.hero{background-image:url("images/mesh.png");-webkit-background-size:170%;-moz-background-size:170%;background-size:170%;background-repeat:no-repeat;background-position:center 10%;}
+nav.main-menu a img[alt="Link to twitter page"]{width:1.3em;margin-bottom:-2px}
+section.hero{background-image:url("images/mesh.jpg");-webkit-background-size:170%;-moz-background-size:170%;background-size:170%;background-repeat:no-repeat;background-position:center 10%;}
 section.hero h1{font-size:1.1em;}
 section.hero h1 span{text-transform:initial;font-weight:300;display:block}
 section.hero .newsletter-form{margin-top:2em}
 section.hero .twitter-follow{text-decoration:none;font-size:.75em;padding:0 .5em;-webkit-transition:color 250ms;-moz-transition:color 250ms;-o-transition:color 250ms;-ms-transition:color 250ms;transition:color 250ms;display:inline-block;margin-top:4em;}
 section.hero .twitter-follow img[title='twitter']{width:1.3em;margin-bottom:-2px;margin-left:.5em}
+.share-bar{margin-top:4em;}
+.share-bar span{padding:4px 0 0 0;display:inline-block}
+.share-bar .share-btns{margin-top:.75em}
+.fb-btn,.tw-btn{display:inline-block;height:27px;vertical-align:top;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-left:15px;padding-right:15px;width:86px}
+.tw-btn{padding-top:3px}
 section.description{background:#18c099 url("images/bg-pattern.gif");color:#fff}
 section.features div > img{max-width:70%;margin-bottom:1em}
 section.features div > svg{max-width:70%;margin-bottom:1em}
@@ -58,7 +64,7 @@ footer{border-top:1px solid #e7e7e7;background-color:#f7f7f7;color:#bdbdbd;overf
 footer a{color:#bdbdbd;}
 footer a:hover{color:#9d9d9d}
 footer .main-menu{float:none;margin-top:1em}
-.newsletter-form{padding-top:1em;max-width:358px;margin-left:auto;margin-right:auto;}
+.newsletter-form{padding-top:1em;max-width:401px;margin-left:auto;margin-right:auto;}
 .newsletter-form input[type="email"]{margin:0;border:1px solid #ababab;-webkit-border-radius:2px;border-radius:2px;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:12px;padding:.3em .6em;vertical-align:top;height:25px;width:179px;margin-bottom:1em}
 .newsletter-form .button{text-transform:uppercase;font-size:12px;vertical-align:top;padding-top:.5em;margin-left:-2px;height:25px}
 #mce-success-response{background-color:rgba(0,128,0,0.2);padding:5px;-webkit-border-radius:3px;border-radius:3px;color:#4c7724}
@@ -107,7 +113,10 @@ section.feature-item:last-child > div{margin-bottom:0;}
 section.feature-item:last-child > div svg{margin-bottom:0}
 .plan-item{width:39%}
 }@media only screen and (min-width: 54.55em){.section{padding:4em 3em}
-section.hero{-webkit-background-size:70%;-moz-background-size:70%;background-size:70%}
+section.hero{-webkit-background-size:70%;-moz-background-size:70%;background-size:70%;}
+section.hero .share-bar{margin-top:5em;}
+section.hero .share-bar span{padding-right:15px;vertical-align:middle}
+section.hero .share-bar .share-btns{margin-top:0;display:inline-block;vertical-align:middle}
 section.description > div{max-width:40%}
 .plan-item{width:28%}
 }@media only screen and (min-width: 68em){.section{position:relative;padding:4em 3em}
@@ -115,9 +124,9 @@ section.description > div{max-width:40%}
 header .logo img{width:140px}
 nav.main-menu ul{margin-top:.2em}
 nav.main-menu a{padding:0 1.5em}
-section.hero{padding:9em 3em;-webkit-background-size:70%;-moz-background-size:70%;background-size:70%;background-position:center 50%;}
+section.hero{padding:9em 3em 2em;-webkit-background-size:65%;-moz-background-size:65%;background-size:65%;background-position:center 25%;}
 section.hero h1{font-size:1.5em}
-section.hero .twitter-follow{margin-top:0;position:absolute;bottom:20px;left:50%;margin-left:-66px}
+section.hero .share-bar{margin-top:8em}
 .newsletter-form input[type="email"]{height:30px;width:200px}
 .newsletter-form .button{height:30px;padding-left:1.5em;padding-right:1.5em}
 section.description > div{max-width:33%}
