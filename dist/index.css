@@ -118,7 +118,7 @@ section.hero .share-bar{margin-top:5em;}
 section.hero .share-bar span{padding-right:15px;vertical-align:middle}
 section.hero .share-bar .share-btns{margin-top:0;display:inline-block;vertical-align:middle}
 section.description > div{max-width:40%}
-.plan-item{width:28%}
+.plan-item{width:28%;vertical-align:top}
 }@media only screen and (min-width: 68em){.section{position:relative;padding:4em 3em}
 .light-gray-text{max-width:32%}
 header .logo img{width:140px}
