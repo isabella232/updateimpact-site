@@ -68,6 +68,8 @@ html(lang="en")
           div.description
             h1.uppercase.text-blue Browse
             p Browse the direct and transitive dependencies of your project in a developer-friendly tree view. Search the tree for specific libraries and versions to find out why they are there.
+            p
+              a(href="https://app.updateimpact.com/") Ready &amp; Free
             button.counter.button-orange(data-id="browse")
               img(src="images/like-btn.svg", title="I'd like that feature")
               span I'd like that feature
@@ -124,45 +126,20 @@ html(lang="en")
           hr
     section#pricing.section.pricing
       div
-        h1.uppercase Pricing
-        div.plan-item
-          h1.plan-title 
-            span Updateimpact<br>
-            | Basic
-          p browse &amp; search the dependency tree
-          p verify why a version was evicted
-          p Maven, SBT integration
-          p available as a service
-          p
-            b FREE
-        div.plan-item
-          h1.plan-title 
-            span Updateimpact<br>
-            | Pro
-          p all 
-            b Basic features
+        div.block
+          include search-icon.svg
+          h1 Browse &amp; Search
+          p Browse and search module is ready and free. And will always remain free.
+        div.block
+          include money-icon.svg
+          h1 Advanced features 
+          p All advanced features are in development and will be paid.
+        div.block
+          include security-icon.svg
+          h1 Serious about security
           p 
-            i plus:
-          p Analyze, Define, Notify, Compare modules
-          p &nbsp;
-          p
-            b pricing to be announced
-        div.plan-item
-          h1.plan-title 
-            span Updateimpact<br>
-            | Enterprise
-          p all 
-            b Basic 
-            | &amp; 
-            b Pro features
-          p 
-            i plus:
-          p on-permise installation
-          p &nbsp;
-          p &nbsp;
-          a(herf="")
-            b contact us for more details
-
+            a(href="mailto:adam@updateimpact.com") Contact us
+            |  directly for on-premises installation.
     footer.section
       div &copy; UpdateImpact 2015. All rights reserved.
         div

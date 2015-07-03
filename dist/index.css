@@ -51,15 +51,17 @@ section.features hr{width:80%;line-height:1;border:none;border-top:1px solid #dd
 section.features .feature-item{margin:2em auto 2em;}
 section.features .feature-item:last-child hr{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
 section.features button img{width:15px;margin-right:.4em}
+section.features a{color:#4583cf;text-decoration:none;}
+section.features a:after{content:'';width:0;height:0;position:absolute;border-left:7px solid #4583cf;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-top:7px;margin-left:7px}
+section.features a:hover{color:#3a4556}
+section.features a:hover:after{border-left:7px solid #3a4556}
 section.pricing{background-color:#4583cf;color:#fff;}
 section.pricing > div > h1{margin-bottom:2em}
-.plan-item{width:84%;display:inline-block;margin-right:20px;margin-left:20px;background-color:#fff;color:#3a4556;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:1.5em 1em 2em;margin-bottom:1.5em;border:3px solid #2d6ebe;}
-.plan-item em{font-weight:bold}
-.plan-item p{margin-bottom:.67em;margin-top:.67em}
-.plan-item a{color:#f66dc4;}
-.plan-item a:hover{color:#e355af}
-.plan-title{text-transform:uppercase;color:#18c099;font-size:1.3em;margin-bottom:1em;}
-.plan-title span{font-weight:300;font-size:.75em;color:#3a4556}
+section.pricing .block{display:inline-block;text-align:center;padding-right:2em;padding-left:2em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;vertical-align:top;margin-bottom:2em;}
+section.pricing .block a{color:#fdb9e4;text-decoration:none;-webkit-transition:color 250ms;-moz-transition:color 250ms;-o-transition:color 250ms;-ms-transition:color 250ms;transition:color 250ms;}
+section.pricing .block a:hover{color:#fff}
+section.pricing .block svg{margin-bottom:1em}
+section.pricing .block h1{font-weight:300;text-transform:uppercase}
 footer{border-top:1px solid #e7e7e7;background-color:#f7f7f7;color:#bdbdbd;overflow:auto;text-align:center;font-size:.75em;}
 footer a{color:#bdbdbd;}
 footer a:hover{color:#9d9d9d}
@@ -111,7 +113,7 @@ section.feature-item:nth-child(even) > div.description{float:left;padding-left:4
 section.feature-item:last-child{margin-bottom:0;}
 section.feature-item:last-child > div{margin-bottom:0;}
 section.feature-item:last-child > div svg{margin-bottom:0}
-.plan-item{width:39%}
+section.pricing .block{width:33%;margin-bottom:0}
 }@media only screen and (min-width: 54.55em){.section{padding:4em 3em}
 section.hero{-webkit-background-size:70%;-moz-background-size:70%;background-size:70%;}
 section.hero .share-bar{margin-top:5em;}

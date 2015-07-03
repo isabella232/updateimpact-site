@@ -199,6 +199,23 @@ section.features
     & img
       width: 15px;
       margin-right: 0.4em;
+  & a
+    color: $blue;
+    text-decoration: none;
+    &:after
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-left: 7px solid $blue;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      margin-top: 7px;
+      margin-left: 7px;
+    &:hover
+      color: $main-text-color;
+    &:hover:after
+      border-left: 7px solid $main-text-color;
     
 section.pricing
   background-color: $blue;
@@ -207,39 +224,28 @@ section.pricing
   & > div > h1
     margin-bottom: 2em;
   
-.plan-item
-  width: 84%;
-  display: inline-block;
-  margin-right: 20px;
-  margin-left: 20px;
-  background-color: white;
-  color: #3a4556;
-  box-sizing: border-box;
-  padding: 1.5em 1em 2em;
-  margin-bottom: 1.5em;
-  border: 3px solid rgb(45, 110, 190);
-  
-  & em
-    font-weight: bold;
+  & .block
+    display: inline-block;
+    text-align: center;
+    padding-right: 2em
+    padding-left: 2em;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-bottom: 2em;
     
-  & p
-    margin-bottom: 0.67em;
-    margin-top: 0.67em;
+    & a
+      color: #FDB9E4;
+      text-decoration: none;
+      transition: color 250ms;
+      &:hover
+        color: white;
     
-  & a
-    color: #f66dc4;
-    &:hover
-      color: #e355af;
-  
-.plan-title
-  text-transform: uppercase;
-  color: #18c099;
-  font-size: 1.3em;
-  margin-bottom: 1em;
-  & span
-    font-weight: 300;
-    font-size: 0.75em;
-    color: #3a4556;
+    & svg
+      margin-bottom: 1em;
+    
+    & h1
+      font-weight: 300;
+      text-transform: uppercase;
    
 footer
   border-top: 1px solid #e7e7e7;
@@ -528,8 +534,9 @@ footer
       & svg
         margin-bottom: 0;
   
-  .plan-item
-    width: 39%;
+  section.pricing .block
+    width: 33%;
+    margin-bottom: 0;
 
 
 @media only screen and (min-width: 54.55em)
