@@ -14,7 +14,7 @@ svg
   width: 100%;
 
 body
-  font-family: Proxima Nova, Helvetica Neue, Arial, sans-serif;
+  font-family: "proxima-nova", Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.48;
   color: $main-text-color;
@@ -56,6 +56,9 @@ button,
   color: white;
   font-weight: 300;
   vertical-align: middle;
+  text-decoration: none;
+  &.button-large
+    padding: 0.8em 1em;
   &.button-orange
     background-color: $orange;
     border: 1px solid $orange;
@@ -151,6 +154,10 @@ section.hero
       width: 1.3em;
       margin-bottom: -2px;
       margin-left: 0.5em;
+      
+.beta-link
+  margin-top: 2em;
+  display: inline-block;
       
 .share-bar
   margin-top: 4em;
@@ -264,7 +271,7 @@ footer
     
 .newsletter-form
   padding-top: 1em;
-  max-width: 401px;
+  max-width: 409px;
   margin-left: auto;
   margin-right: auto;
   & input[type="email"]
