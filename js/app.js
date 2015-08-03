@@ -3,7 +3,7 @@
   	var featureName = $(ev.target).closest('button').attr('data-id');
   	var self = this;
   	$.ajax({
-    	url: "https://app.updateimpact.com/rest/features/"+featureName,
+    	url: "https://app.updateimpact.com/api/features/"+featureName,
     	jsonp: "callback",
 	    dataType: "jsonp",
 	    success: function( response ) {
