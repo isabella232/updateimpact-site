@@ -1,7 +1,7 @@
 doctype 5
 html(lang="en")
   head
-    title UpdateImpact - dependency tree for your JVM-based projects.
+    title UpdateImpact - browse, search & analyze the dependency tree of your Java/Scala project.
     link(rel="stylesheet", href="index.css")
     link(rel="shortcut icon", href="favicon.ico")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
@@ -25,6 +25,8 @@ html(lang="en")
             li
               a(href="#pricing", data-scroll) Pricing
             li
+              a(href="mailto:updateimpact@updateimpact.com") Contact us
+            li
               a(href="https://twitter.com/updateimpact") 
                 img(src="images/twitter.svg", alt="Link to twitter page")
     section.section.hero
@@ -39,7 +41,7 @@ html(lang="en")
               div#mc_embed_signup_scroll
                 div.mc-field-group
                   input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
-                  input#mc-embedded-subscribe.button.button-blue(type='submit', value='Subscribe to newsletters', name='subscribe')
+                  input#mc-embedded-subscribe.button.button-blue(type='submit', value='Subscribe to our newsletter', name='subscribe')
                 div#mce-responses.clear
                   div#mce-error-response.response(style='display:none')
                   div#mce-success-response.response(style='display:none')
@@ -49,12 +51,12 @@ html(lang="en")
           script(type='text/javascript')
             (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
           //- End Mailchimp form
-        a.button.button-large.button-green.beta-link(href="https://app.updateimpact.com/") Try browse beta
+        a.button.button-large.button-green.beta-link(href="https://app.updateimpact.com/") Try the beta: browse & search
         div.share-bar 
-          span.light-gray-text Think it's a helpful product? Share it!
+          span.light-gray-text Share if you like UpdateImpact!
           div.share-btns
             div.tw-btn
-              a.twitter-share-button(href='https://twitter.com/intent/tweet', data-count='none')
+              a.twitter-share-button(href='https://twitter.com/share', data-count='none', data-url='http://updateimpact.com', data-text='UpdateImpact: browse&search dependency trees of your Java/Scala projects')
             div.fb-btn
               .fb-share-button(data-href='https://www.updateimpact.com', data-layout='button')
     section#product.section.description
@@ -133,19 +135,21 @@ html(lang="en")
         div.block
           include search-icon.svg
           h1 Browse &amp; Search
-          p Browse and search module is ready and free. And will always remain free.
+          p Browse and search module is available now & free.
         div.block
           include money-icon.svg
           h1 Advanced features 
-          p All advanced features are in development and will be paid.
+          p All advanced features will be available soon on a subscription basis.
         div.block
           include security-icon.svg
-          h1 Serious about security
+          h1 On-premise / custom
           p 
-            a(href="mailto:adam@updateimpact.com") Contact us
-            |  directly for on-premises installation.
+            a(href="mailto:updateimpact@updateimpact.com") Contact us
+            |  directly for on-premise installation or customization requests.
     footer.section
-      div &copy; UpdateImpact 2015. All rights reserved.
+      div &copy; UpdateImpact 2015 by 
+        a(href="https://softwaremill.com") SoftwareMill
+        |. All rights reserved.
         div
           nav.main-menu
             ul.uppercase
@@ -155,6 +159,8 @@ html(lang="en")
                 a(href="#features", data-scroll) Features
               li
                 a(href="#pricing", data-scroll) Pricing
+              li
+                a(href="mailto:updateimpact@updateimpact.com") Contact us
 
     script(src="app.js")
 
