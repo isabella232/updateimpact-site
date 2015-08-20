@@ -1,1 +1,328 @@
-window.smoothScroll=function(a,b,c){"use strict";var d=function(){return{speed:500,easing:"easeInOutCubic",updateURL:!1,callbackBefore:function(){},callbackAfter:function(){}}},e=function(a,b){for(var c in b)a[c]=b[c];return a},f=function(a,b){return"easeInQuad"==a?b*b:"easeOutQuad"==a?b*(2-b):"easeInOutQuad"==a?.5>b?2*b*b:-1+(4-2*b)*b:"easeInCubic"==a?b*b*b:"easeOutCubic"==a?--b*b*b+1:"easeInOutCubic"==a?.5>b?4*b*b*b:(b-1)*(2*b-2)*(2*b-2)+1:"easeInQuart"==a?b*b*b*b:"easeOutQuart"==a?1- --b*b*b*b:"easeInOutQuart"==a?.5>b?8*b*b*b*b:1-8*--b*b*b*b:"easeInQuint"==a?b*b*b*b*b:"easeOutQuint"==a?1+--b*b*b*b*b:"easeInOutQuint"==a?.5>b?16*b*b*b*b*b:1+16*--b*b*b*b*b:b},g=function(a,b){var c=0;if(a.offsetParent)do c+=a.offsetTop,a=a.offsetParent;while(a);return c-=b,c>=0?c:0},h=function(a){if(null===a||a===c)return{};var b={};return a=a.split(";"),a.forEach(function(a){a=a.trim(),""!==a&&(a=a.split(":"),b[a[0]]=a[1].trim())}),b},i=function(a,b){b!==!0&&"true"!==b||!history.pushState||history.pushState({pos:a.id},"",a)},j=function(c,j,k,l){k=e(d(),k||{});var m,n,o,p=h(c.getAttribute("data-options")),q=p.speed||k.speed,r=p.easing||k.easing,s=p.updateURL||k.updateURL,t=b.querySelector("[data-scroll-header]"),u=null===t?0:t.offsetHeight+t.offsetTop,v=a.pageYOffset,w=g(b.querySelector(j),u),x=w-v,y=0;c&&"A"===c.tagName&&l&&l.preventDefault(),i(j,s);var z=function(){var c=a.pageYOffset;(o==w||c==w||a.innerHeight+c>=b.body.scrollHeight)&&(clearInterval(m),k.callbackAfter())},A=function(){y+=16,n=y/q,n=n>1?1:n,o=v+x*f(r,n),a.scrollTo(0,Math.floor(o)),z(o,w,m)},B=function(){k.callbackBefore(),m=setInterval(A,16)};B()},k=function(c){if("querySelector"in b&&"addEventListener"in a&&Array.prototype.forEach){c=e(d(),c||{});var f=b.querySelectorAll("[data-scroll]");Array.prototype.forEach.call(f,function(a,b){a.addEventListener("click",j.bind(null,a,a.getAttribute("href"),c),!1)})}};return{init:k,animateScroll:j}}(window,document),function(a,b,c,d){a.fn.extend({scrollspy:function(c){var d={min:0,max:0,mode:"vertical",namespace:"scrollspy",buffer:0,container:b,onEnter:c.onEnter?c.onEnter:[],onLeave:c.onLeave?c.onLeave:[],onTick:c.onTick?c.onTick:[]},c=a.extend({},d,c);return this.each(function(b){var d=this,e=c,f=a(e.container),g=e.mode,h=e.buffer,i=leaves=0,j=!1;f.bind("scroll."+e.namespace,function(b){var c={top:a(this).scrollTop(),left:a(this).scrollLeft()},k="vertical"==g?c.top+h:c.left+h,l=e.max,m=e.min;a.isFunction(e.max)&&(l=e.max()),a.isFunction(e.min)&&(m=e.min()),0==l&&(l="vertical"==g?f.height():f.outerWidth()+a(d).outerWidth()),k>=m&&l>=k?(j||(j=!0,i++,a(d).trigger("scrollEnter",{position:c}),a.isFunction(e.onEnter)&&e.onEnter(d,c)),a(d).trigger("scrollTick",{position:c,inside:j,enters:i,leaves:leaves}),a.isFunction(e.onTick)&&e.onTick(d,c,j,i,leaves)):j&&(j=!1,leaves++,a(d).trigger("scrollLeave",{position:c,leaves:leaves}),a.isFunction(e.onLeave)&&e.onLeave(d,c))})})}})}(jQuery,window,document,void 0),function(){function a(a){a.blur().addClass("clear").text("Thank you!")}$("button.counter").on("click",function(b){var c=$(b.target).closest("button").attr("data-id"),d=this;$.ajax({url:"https://app.updateimpact.com/api/features/"+c,jsonp:"callback",dataType:"jsonp",success:function(b){a($(d)),$.cookie("feature-"+c,"voted",{expires:7})}})}),$.cookie("feature-browse")&&a($("#browse button.counter")),$.cookie("feature-analyze")&&a($("#analyze button.counter")),$.cookie("feature-define")&&a($("#define button.counter")),$.cookie("feature-notify")&&a($("#notify button.counter")),$.cookie("feature-compare")&&a($("#compare button.counter"))}();
+/* =============================================================
+
+	Smooth Scroll v4.0
+	Animate scrolling to anchor links, by Chris Ferdinandi.
+	http://gomakethings.com
+
+	Additional contributors:
+	https://github.com/cferdinandi/smooth-scroll#contributors
+
+	Free to use under the MIT License.
+	http://gomakethings.com/mit/
+
+ * ============================================================= */
+
+window.smoothScroll = (function (window, document, undefined) {
+
+	'use strict';
+
+	// Default settings
+	// Private method
+	// Returns an {object}
+	var _defaults = function () {
+		return {
+			speed: 500,
+			easing: 'easeInOutCubic',
+			updateURL: false,
+			callbackBefore: function () {},
+			callbackAfter: function () {}
+		};
+	};
+
+	// Merge default settings with user options
+	// Private method
+	// Returns an {object}
+	var _mergeObjects = function ( original, updates ) {
+		for (var key in updates) {
+			original[key] = updates[key];
+		}
+		return original;
+	};
+
+	// Calculate the easing pattern
+	// Private method
+	// Returns a decimal number
+	var _easingPattern = function ( type, time ) {
+		if ( type == 'easeInQuad' ) return time * time; // accelerating from zero velocity
+		if ( type == 'easeOutQuad' ) return time * (2 - time); // decelerating to zero velocity
+		if ( type == 'easeInOutQuad' ) return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time; // acceleration until halfway, then deceleration
+		if ( type == 'easeInCubic' ) return time * time * time; // accelerating from zero velocity
+		if ( type == 'easeOutCubic' ) return (--time) * time * time + 1; // decelerating to zero velocity
+		if ( type == 'easeInOutCubic' ) return time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1; // acceleration until halfway, then deceleration
+		if ( type == 'easeInQuart' ) return time * time * time * time; // accelerating from zero velocity
+		if ( type == 'easeOutQuart' ) return 1 - (--time) * time * time * time; // decelerating to zero velocity
+		if ( type == 'easeInOutQuart' ) return time < 0.5 ? 8 * time * time * time * time : 1 - 8 * (--time) * time * time * time; // acceleration until halfway, then deceleration
+		if ( type == 'easeInQuint' ) return time * time * time * time * time; // accelerating from zero velocity
+		if ( type == 'easeOutQuint' ) return 1 + (--time) * time * time * time * time; // decelerating to zero velocity
+		if ( type == 'easeInOutQuint' ) return time < 0.5 ? 16 * time * time * time * time * time : 1 + 16 * (--time) * time * time * time * time; // acceleration until halfway, then deceleration
+		return time; // no easing, no acceleration
+	};
+
+	// Calculate how far to scroll
+	// Private method
+	// Returns an integer
+	var _getEndLocation = function ( anchor, headerHeight ) {
+		var location = 0;
+		if (anchor.offsetParent) {
+			do {
+				location += anchor.offsetTop;
+				anchor = anchor.offsetParent;
+			} while (anchor);
+		}
+		location = location - headerHeight;
+		if ( location >= 0 ) {
+			return location;
+		} else {
+			return 0;
+		}
+	};
+
+	// Convert data-options attribute into an object of key/value pairs
+	// Private method
+	// Returns an {object}
+	var _getDataOptions = function ( options ) {
+
+		if ( options === null || options === undefined  ) {
+			return {};
+		} else {
+			var settings = {}; // Create settings object
+			options = options.split(';'); // Split into array of options
+
+			// Create a key/value pair for each setting
+			options.forEach( function(option) {
+				option = option.trim();
+				if ( option !== '' ) {
+					option = option.split(':');
+					settings[option[0]] = option[1].trim();
+				}
+			});
+
+			return settings;
+		}
+
+	};
+
+	// Update the URL
+	// Private method
+	// Runs functions
+	var _updateURL = function ( anchor, url ) {
+		if ( (url === true || url === 'true') && history.pushState ) {
+			history.pushState( {pos:anchor.id}, '', anchor );
+		}
+	};
+
+	// Start/stop the scrolling animation
+	// Public method
+	// Runs functions
+	var animateScroll = function ( toggle, anchor, options, event ) {
+
+		// Options and overrides
+		options = _mergeObjects( _defaults(), options || {} ); // Merge user options with defaults
+		var overrides = _getDataOptions( toggle.getAttribute('data-options') );
+		var speed = overrides.speed || options.speed;
+		var easing = overrides.easing || options.easing;
+		var updateURL = overrides.updateURL || options.updateURL;
+
+		// Selectors and variables
+		var fixedHeader = document.querySelector('[data-scroll-header]'); // Get the fixed header
+		var headerHeight = fixedHeader === null ? 0 : (fixedHeader.offsetHeight + fixedHeader.offsetTop); // Get the height of a fixed header if one exists
+		var startLocation = window.pageYOffset; // Current location on the page
+		var endLocation = _getEndLocation( document.querySelector(anchor), headerHeight ); // Scroll to location
+		var animationInterval; // interval timer
+		var distance = endLocation - startLocation; // distance to travel
+		var timeLapsed = 0;
+		var percentage, position;
+
+		// Prevent default click event
+		if ( toggle && toggle.tagName === 'A' && event ) {
+			event.preventDefault();
+		}
+
+		// Update URL
+		_updateURL(anchor, updateURL);
+
+		// Stop the scroll animation when it reaches its target (or the bottom/top of page)
+		// Private method
+		// Runs functions
+		var _stopAnimateScroll = function () {
+			var currentLocation = window.pageYOffset;
+			if ( position == endLocation || currentLocation == endLocation || ( (window.innerHeight + currentLocation) >= document.body.scrollHeight ) ) {
+				clearInterval(animationInterval);
+				options.callbackAfter(); // Run callbacks after animation complete
+			}
+		};
+
+		// Loop scrolling animation
+		// Private method
+		// Runs functions
+		var _loopAnimateScroll = function () {
+			timeLapsed += 16;
+			percentage = ( timeLapsed / speed );
+			percentage = ( percentage > 1 ) ? 1 : percentage;
+			position = startLocation + ( distance * _easingPattern(easing, percentage) );
+			window.scrollTo( 0, Math.floor(position) );
+			_stopAnimateScroll(position, endLocation, animationInterval);
+		};
+
+		// Set interval timer
+		// Private method
+		// Runs functions
+		var _startAnimateScroll = function () {
+			options.callbackBefore(); // Run callbacks before animating scroll
+			animationInterval = setInterval(_loopAnimateScroll, 16);
+		};
+
+		// Start scrolling animation
+		_startAnimateScroll();
+
+	};
+
+	// Initialize Smooth Scroll
+	// Public method
+	// Runs functions
+	var init = function ( options ) {
+
+		// Feature test before initializing
+		if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+
+			// Selectors and variables
+			options = _mergeObjects( _defaults(), options || {} ); // Merge user options with defaults
+			var toggles = document.querySelectorAll('[data-scroll]'); // Get smooth scroll toggles
+
+			// When a toggle is clicked, run the click handler
+			Array.prototype.forEach.call(toggles, function (toggle, index) {
+				toggle.addEventListener('click', animateScroll.bind( null, toggle, toggle.getAttribute('href'), options ), false);
+			});
+
+		}
+
+	};
+
+	// Return public methods
+	return {
+		init: init,
+		animateScroll: animateScroll
+	};
+
+})(window, document);;/*!
+ * jQuery Scrollspy Plugin
+ * Author: @sxalexander
+ * Licensed under the MIT license
+ */
+;(function ( $, window, document, undefined ) {
+
+    $.fn.extend({
+      scrollspy: function ( options ) {
+        
+          var defaults = {
+            min: 0,
+            max: 0,
+            mode: 'vertical',
+            namespace: 'scrollspy',
+            buffer: 0,
+            container: window,
+            onEnter: options.onEnter ? options.onEnter : [],
+            onLeave: options.onLeave ? options.onLeave : [],
+            onTick: options.onTick ? options.onTick : []
+          }
+          
+          var options = $.extend( {}, defaults, options );
+
+          return this.each(function (i) {
+
+              var element = this;
+              var o = options;
+              var $container = $(o.container);
+              var mode = o.mode;
+              var buffer = o.buffer;
+              var enters = leaves = 0;
+              var inside = false;
+                            
+              /* add listener to container */
+              $container.bind('scroll.' + o.namespace, function(e){
+                  var position = {top: $(this).scrollTop(), left: $(this).scrollLeft()};
+                  var xy = (mode == 'vertical') ? position.top + buffer : position.left + buffer;
+                  var max = o.max;
+                  var min = o.min;
+                  
+                  /* fix max */
+                  if($.isFunction(o.max)){
+                    max = o.max();
+                  }
+
+                  /* fix max */
+                  if($.isFunction(o.min)){
+                    min = o.min();
+                  }
+
+                  if(max == 0){
+                      max = (mode == 'vertical') ? $container.height() : $container.outerWidth() + $(element).outerWidth();
+                  }
+                  
+                  /* if we have reached the minimum bound but are below the max ... */
+                  if(xy >= min && xy <= max){
+                    /* trigger enter event */
+                    if(!inside){
+                       inside = true;
+                       enters++;
+                       
+                       /* fire enter event */
+                       $(element).trigger('scrollEnter', {position: position})
+                       if($.isFunction(o.onEnter)){
+                         o.onEnter(element, position);
+                       }
+                      
+                     }
+                     
+                     /* trigger tick event */
+                     $(element).trigger('scrollTick', {position: position, inside: inside, enters: enters, leaves: leaves})
+                     if($.isFunction(o.onTick)){
+                       o.onTick(element, position, inside, enters, leaves);
+                     }
+                  }else{
+                    
+                    if(inside){
+                      inside = false;
+                      leaves++;
+                      /* trigger leave event */
+                      $(element).trigger('scrollLeave', {position: position, leaves:leaves})
+
+                      if($.isFunction(o.onLeave)){
+                        o.onLeave(element, position);
+                      }
+                    }
+                  }
+              }); 
+
+          });
+      }
+
+    })
+
+    
+})( jQuery, window, document, undefined );
+;(function() {
+  $('button.counter').on('click', function(ev){
+  	var featureName = $(ev.target).closest('button').attr('data-id');
+  	var self = this;
+  	$.ajax({
+    	url: "https://app.updateimpact.com/api/features/"+featureName,
+    	jsonp: "callback",
+	    dataType: "jsonp",
+	    success: function( response ) {
+    	    voted($(self));
+    	    $.cookie('feature-'+featureName, 'voted', { expires: 7 });
+    	}
+	});
+  });
+
+  function voted(el) {
+  	el.blur().addClass('clear').text('Thank you!');
+  }  
+
+  if ($.cookie('feature-browse')) voted($("#browse button.counter"));
+  if ($.cookie('feature-analyze')) voted($("#analyze button.counter"));
+  if ($.cookie('feature-define')) voted($("#define button.counter"));
+  if ($.cookie('feature-notify')) voted($("#notify button.counter"));
+  if ($.cookie('feature-compare')) voted($("#compare button.counter"));
+})();
